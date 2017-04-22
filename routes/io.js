@@ -5,7 +5,7 @@ var gpio = require('rpi-gpio');
 router.get('/left/:port', (req, res, next) =>
 {
     let port = req.params.port;
-    gpio.setup(7, gpio.DIR_HIGH,()=>{
+    gpio.setup(port, gpio.DIR_HIGH,()=>{
         gpio.write(port, false, function(err) {
         if (err) throw err;
         console.log('Written to pin');
@@ -18,7 +18,7 @@ router.get('/left/:port', (req, res, next) =>
 router.get('/right/:port', (req, res, next) =>
 {
    let port = req.params.port;
-    gpio.setup(7, gpio.DIR_HIGH,()=>{
+    gpio.setup(port, gpio.DIR_HIGH,()=>{
         gpio.write(port, false, function(err) {
         if (err) throw err;
         console.log('Written to pin');
